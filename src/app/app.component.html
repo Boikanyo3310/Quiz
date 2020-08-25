@@ -1,3 +1,27 @@
-<ion-app>
-  <ion-router-outlet></ion-router-outlet>
-</ion-app>
+<ion-content>
+  <ion-list>
+    <h1>
+      Quiz: How Much Do You Really Know About COVID-19?
+    </h1>
+    
+    <div *ngFor="let question of question">
+    
+      <p>{{question.questions}} </p>
+    
+      <div *ngFor="let op of question.option"> 
+         <label>
+        <input id="useranswer{{option}}" [value]='op' type="radio" [(ngModel)]="question.useranswer">
+        {{op}}
+      </label>
+        
+         </div>
+     
+    </div>
+
+    <br>
+    <br>
+    <button (click)='submit()'>Submit</button>
+    {{radioSelected}}
+    
+  </ion-list>
+</ion-content>
